@@ -4,6 +4,9 @@ A simple web-based **QR Code and Barcode Generator** built with Python, Flask, H
 
 Users can enter text or a URL, choose between a QR code or a Code 128 barcode, and generate an image directly in the browser. The generated code can also be printed.
 
+## URL
+https://faizi-barcode-genrator.onrender.com/
+
 ## Features
 
 * Generate **QR Codes**
