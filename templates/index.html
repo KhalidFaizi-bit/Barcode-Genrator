@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR & Barcode Generator</title>
+
+    <!-- Linking our external CSS stylesheet -->
+    <link rel="stylesheet" href="../static/Style.css">
+
+</head>
+<body>
+<!-- We wrap everything in a container to center it neatly on the screen -->
+<div class="genrator-container">
+
+    <!-- The header section -->
+    <h1 class="title">QR & Barcode Generator</h1>
+    <p class="no-print">Enter text or a URL to generate a code.</p>
+
+
+    <!-- The input section is now a form -->
+    <form class="input-group no-print" method="POST" action="/">
+        <!-- 'name' attributes added so Python can read these values -->
+        <input type="text" name="data" id="dataInput" placeholder="Enter your data here..." required>
+
+        <select name="codeType" id="codeType">
+            <option value="qr">QR Code</option>
+            <option value="barcode">Barcode (Code 128)</option>
+        </select>
+
+        <button type="submit" id="generateBtn">Generate</button>
+    </form>
+
+    <!-- The output section where the image will appear -->
+    <div class="output-group" id="outputArea">
+        {% if image_url %}
+        <!-- This shows up after you click Generate -->
+        <img id="codeImage" src="{{ image_url }}" alt="Generated Code" style="display: block;">
+        {% else %}
+        <!-- This is the default empty state -->
+        <img id="codeImage" src="" alt="Your generated code will appear here">
+        {% endif %}
+    </div>
+
+    <!-- The print button (hidden when actually printing) -->
+    <div class="print-group no-print">
+    <!-- onclick="window.print()" is a tiny built-in browser command that opens the print dialog -->
+    <button id="printBtn" onclick="window.print()">Print Code</button>
+</div>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

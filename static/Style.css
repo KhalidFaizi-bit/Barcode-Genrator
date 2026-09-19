@@ -1,0 +1,103 @@
+/* Reset basic browser defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the body to have a light gray background and center our app */
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Takes up 100% of the viewport height */
+}
+
+/* The main white card holding our generator */
+.genrator-container{
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 400px;
+}
+
+/* Flexbox to arrange the input and button neatly */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds space between the input elements */
+    margin-bottom: 20px;
+}
+
+/* Styling the input field and dropdown menu */
+input[type="text"], select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styling the buttons */
+button {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth color transition on hover */
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+/* Styling the image output area */
+.output-group {
+    margin: 20px 0;
+    min-height: 150px; /* Ensures the box doesn't collapse when empty */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#codeImage {
+    max-width: 100%; /* Ensures the barcode doesn't overflow the box */
+    display: none; /* We hide the image icon until a code is actually generated */
+}
+
+/*
+  ========================================
+  PRINTER STYLES
+  ========================================
+*/
+
+@media print {
+    /* Hide everything with the class 'no-print' */
+    .no-print {
+        display: none !important;
+    }
+}
+
+    /* Remove the box shadow and background from the container for a clean print */
+    .generator-container {
+        box-shadow: none;
+        border: none;
+        width: auto;
+    }
+
+/* Ensure the output image prints cleanly at the top of the page */
+.output-group {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
